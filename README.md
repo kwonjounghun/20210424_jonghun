@@ -1,46 +1,50 @@
-# Getting Started with Create React App
+# 사진 피드 만들기
+React를 사용하여 요구사항을 만족하는 페이지를 구성해주세요.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 디자인
+https://ozip.me/ankGeTe
+```
+id: product_hw@bucketplace.net
+pwd: helloBucket!
+```
 
-## Available Scripts
+### 요구사항
+1. 디자인에 부합하는 웹 PC화면을 만들어주세요.
+2. 사진 리스트는 다음과 같이 구현해주세요.
+ - 사진 리스트 정보는 다음 URL을 이용해서 얻을 수 있습니다.
+ ```
+   https://bucketplace-coding-test.s3.amazonaws.com/cards/page_1.json
+   https://bucketplace-coding-test.s3.amazonaws.com/cards/page_2.json
+   ... 계속
+   ```
+ - 사용자가 어느정도 스크롤을 진행함에 따라 지속적으로 다음 페이지 사진을 불러온다.
+ - 빈 값이 나올때까지 지속적으로 Ajax를 통해서 다음 페이지를 불러온다. 
+3. 스크랩 기능
+ - 각각의 사진을 스크랩 할 수 있다.
+ - 스크랩 버튼을 누른 경우 localStorage를 이용하여 스크랩한 사진 정보를 저장한다.
+ - 스크랩이 된 경우에는 스크랩 버튼 색상이 파란색으로 변한다.
+ - 파란색인 경우에는 스크랩을 취소한다.
+ - 이후 새로고침 하였을때, 스크랩된 사진의 경우 스크랩된 상태로 표시되어야 한다.
+4. 필터 기능
+ - 스크랩한 것만 모아보기 기능을 사용 시 상태와 관계없이 스크랩 된 항목들이 모두 불러온다. 
+  
+### 카드 JSON 스키마
+JSON 안에는 다음의 스키마를 가진 객체들이 배열 안에 나열되어 있습니다.
 
-In the project directory, you can run:
+- id: number
+- image_url: string
+- nickname: string
+- profile_image_url: string
 
-### `yarn start`
+### 선택구현 사항
+스크랩/스크랩 취소할때 사용자와의 인터랙션
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 제출 방법
+- Git 저장소에 올리셔서 해당 Git 저장소의 주소를 보내주세요.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 기타사항
+- React 앱 생성시 create react app 명령어 사용이 가능합니다.
+- 아이콘 추출시 이름이 "-"로 설정된 경우 의도치 않은 아이콘이 다운받아질 수 있습니다. 
+- 과제에 명시되지 않은 라이브러리 혹은 기술을 사용하여 구현하셔도 됩니다.
+- 스크랩시 또는 스크랩 취소시 인터렉션은 원하시는 방식으로 구현하시면 됩니다.
+- 해당 내용을 외부로 노출하면 안됩니다.
