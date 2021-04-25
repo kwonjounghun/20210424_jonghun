@@ -3,17 +3,17 @@ import Avata from './Avata';
 import styled from 'styled-components';
 
 interface Props {
-  photoUrl?: string;
+  profileImgUrl?: string;
   nickname?: string;
 };
 
 const UserProfile: React.FC<Props> = ({
-  photoUrl,
+  profileImgUrl,
   nickname,
 }) => {
   return (
     <ProfileContainer>
-      <Avata photoUrl={photoUrl} />
+      <Avata photoUrl={profileImgUrl} />
       <UserName data-testid="user-nickname">{nickname}</UserName>
     </ProfileContainer>
   );
