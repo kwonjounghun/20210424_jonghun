@@ -26,9 +26,9 @@ describe('BookMarkToggle', () => {
     expect(screen.getByTestId('bookmark-checkbox')).not.toBeChecked();
   });
 
-  it('calls onClick event', () => {
+  it('calls onChange event', () => {
     const handleClick = jest.fn();
-    renderBookMarkToggle({ onClick: handleClick });
+    renderBookMarkToggle({ onChange: handleClick });
 
     userEvent.click(screen.getByTestId('bookmark'));
 
