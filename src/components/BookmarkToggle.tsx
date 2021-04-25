@@ -10,7 +10,7 @@ interface Props extends React.HTMLAttributes<HTMLInputElement> {
   id?: string;
 };
 
-const BookmarkToggle: React.FC<Props> = ({
+const BookMarkToggle: React.FC<Props> = ({
   classNames,
   checked,
   id,
@@ -60,4 +60,4 @@ const HiddenText = styled.span`
   clip: rect(0,0,0,0);
 `;
 
-export default React.memo(BookmarkToggle);
+export default React.memo(BookMarkToggle);

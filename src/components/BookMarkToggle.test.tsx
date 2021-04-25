@@ -1,34 +1,34 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import BookmarkToggle from './BookmarkToggle';
+import BookMarkToggle from './BookMarkToggle';
 import BookmarkSvg from '../assets/bookmark.svg';
 import BookmarkBlueSvg from '../assets/bookmark-blue.svg';
 import '@testing-library/jest-dom/extend-expect';
 
-describe('BookmarkToggle', () => {
-  function renderBookmarkToggle(props?: any) {
-    return render(<BookmarkToggle {...props} />);
+describe('BookMarkToggle', () => {
+  function renderBookMarkToggle(props?: any) {
+    return render(<BookMarkToggle {...props} />);
   }
 
   it('render', () => {
-    renderBookmarkToggle();
+    renderBookMarkToggle();
     screen.getByText('스크랩 하기');
   });
 
   it('icon is gray', () => {
-    renderBookmarkToggle();
+    renderBookMarkToggle();
     expect(screen.getByTestId('bookmark-icon').getAttribute('src')).toEqual(BookmarkSvg);
   });
 
   it('checkbox is not checked', () => {
-    renderBookmarkToggle();
+    renderBookMarkToggle();
     expect(screen.getByTestId('bookmark-checkbox')).not.toBeChecked();
   });
 
   it('calls onClick event', () => {
     const handleClick = jest.fn();
-    renderBookmarkToggle({ onClick: handleClick });
+    renderBookMarkToggle({ onClick: handleClick });
 
     userEvent.click(screen.getByTestId('bookmark'));
 
@@ -37,12 +37,12 @@ describe('BookmarkToggle', () => {
 
   describe('with checked', () => {
     it('icon is Blue', () => {
-      renderBookmarkToggle({ checked: true, onChange: () => { } });
+      renderBookMarkToggle({ checked: true, onChange: () => { } });
       expect(screen.getByTestId('bookmark-icon').getAttribute('src')).toEqual(BookmarkBlueSvg);
     });
 
     it('checkbox is checked', () => {
-      renderBookmarkToggle({ checked: true, onChange: () => { } });
+      renderBookMarkToggle({ checked: true, onChange: () => { } });
       expect(screen.getByTestId('bookmark-checkbox')).toBeChecked();
     });
   });
