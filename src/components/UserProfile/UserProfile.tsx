@@ -1,5 +1,5 @@
 import React from 'react';
-import Avata from './Avata';
+import Avata from '../Avata';
 import styled from 'styled-components';
 
 interface Props {

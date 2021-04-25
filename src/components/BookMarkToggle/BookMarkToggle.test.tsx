@@ -2,8 +2,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import BookMarkToggle from './BookMarkToggle';
-import BookmarkSvg from '../assets/bookmark.svg';
-import BookmarkBlueSvg from '../assets/bookmark-blue.svg';
+import BookmarkSvg from '../../assets/bookmark.svg';
+import BookmarkBlueSvg from '../../assets/bookmark-blue.svg';
 import '@testing-library/jest-dom/extend-expect';
 
 describe('BookMarkToggle', () => {

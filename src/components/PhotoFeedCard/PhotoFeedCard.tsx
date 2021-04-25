@@ -1,7 +1,7 @@
 import React from 'react';
-import UserProfile from './UserProfile';
-import Thumbnail from './Thumbnail';
-import BookMarkToggle from './BookMarkToggle';
+import UserProfile from '../UserProfile';
+import Thumbnail from '../Thumbnail';
+import BookMarkToggle from '../BookMarkToggle';
 import styled from 'styled-components';
 
 interface Props {

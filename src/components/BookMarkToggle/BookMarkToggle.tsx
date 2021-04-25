@@ -1,6 +1,6 @@
 import React from 'react';
-import BookmarkSvg from '../assets/bookmark.svg';
-import BookmarkBlueSvg from '../assets/bookmark-blue.svg';
+import BookmarkSvg from '../../assets/bookmark.svg';
+import BookmarkBlueSvg from '../../assets/bookmark-blue.svg';
 import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
 
