@@ -3,13 +3,15 @@ import styled from 'styled-components';
 
 interface Props {
   photoUrl?: string;
+  className?: string;
 };
 
 const Thumbnail: React.FC<Props> = ({
   photoUrl,
+  className,
 }) => {
   return (
-    <ImageContainer>
+    <ImageContainer className={className}>
       <ImageBox photoUrl={photoUrl} data-testid="thumbnail"/>
       이미지
     </ImageContainer>
