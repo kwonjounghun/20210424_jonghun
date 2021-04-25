@@ -20,8 +20,8 @@ const Thumbnail: React.FC<Props> = ({
 
 const ImageContainer = styled.div`
   position: relative;
-  width: 269px;
-  height: 269px;
+  width: 270px;
+  height: 270px;
   display: flex;
   align-items: center;
   justify-content: center;

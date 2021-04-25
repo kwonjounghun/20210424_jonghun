@@ -33,7 +33,6 @@ const PhotoFeedList: React.FC<Props> = ({
 };
 
 const ListContainer = styled.ul`
-  padding: 0 60px;
   display: inline-block;
 `;
 
