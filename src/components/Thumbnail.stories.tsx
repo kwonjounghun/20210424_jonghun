@@ -13,4 +13,4 @@ export const BasicUsage = (args: any) => <Thumbnail {...args} />;
 
 BasicUsage.args = {
   photoUrl,
-}
+};

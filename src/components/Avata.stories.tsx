@@ -12,4 +12,4 @@ export const BasicUsage = (args: any) => <Avata {...args} />;
 
 BasicUsage.args = {
   photoUrl,
-}
+};
