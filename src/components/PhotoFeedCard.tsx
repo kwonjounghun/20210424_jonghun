@@ -10,21 +10,23 @@ interface Props {
   profileImgUrl?: string;
   nickname?: string;
   onChange?: () => void;
+  checked?: boolean;
 };
 
 const PhotoFeedCard: React.FC<Props> = ({
+  id,
+  checked,
+  nickname,
   photoUrl,
   profileImgUrl,
-  nickname,
   onChange,
-  id,
   ...props
 }) => {
   return (
     <CardContainer>
       <UserProfile nickname={nickname} profileImgUrl={profileImgUrl}/>
       <FeedImage photoUrl={photoUrl} />
-      <BookMark id={`${id}`} onChange={onChange}/>
+      <BookMark id={`${id}`} checked={checked} onChange={onChange}/>
     </CardContainer>
   );
 };
