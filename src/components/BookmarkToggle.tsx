@@ -11,15 +11,17 @@ interface Props extends React.HTMLAttributes<HTMLInputElement> {
 };
 
 const BookMarkToggle: React.FC<Props> = ({
-  classNames,
+  className,
   checked,
   id,
   ...props
 }) => {
   const UniqueId = id || `bookmark-${uuidv4()}`;
   return (
-    <ToggleContainer className={classNames} htmlFor={UniqueId} data-testid="bookmark">
-      <BookmarkIcon src={checked ? BookmarkBlueSvg : BookmarkSvg} data-testid="bookmark-icon"/>
+    <ToggleContainer className={className} htmlFor={UniqueId} data-testid="bookmark">
+      <BookmarkIcon>
+        <img src={checked ? BookmarkBlueSvg : BookmarkSvg} data-testid="bookmark-icon"/>
+      </BookmarkIcon>
       <Checkbox
         id={UniqueId}
         type="checkbox"
@@ -37,9 +39,10 @@ const ToggleContainer = styled.label`
   cursor: pointer;
 `;
 
-const BookmarkIcon = styled.img`
-  width: 23.33px;
-  height: 24.5px;
+const BookmarkIcon = styled.div`
+  width: 28px;
+  height: 28px;
+  text-align: center;
 `;
 
 const Checkbox = styled.input`
