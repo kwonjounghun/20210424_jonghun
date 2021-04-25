@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { PhotoFeedList, ScrapToggle } from '../components';
 import { photoFeedListRequest } from '../api';
 
-function PhotoFeedPageContainer() {
+const PhotoFeedPageContainer = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [photoFeedList, setPhotoFeedList] = useState<any>([]);
 

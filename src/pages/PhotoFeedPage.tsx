@@ -2,7 +2,7 @@ import React from 'react';
 import { PhotoFeedPageContainer } from '../containers';
 import styled from 'styled-components';
 
-function PhotoFeedPage() {
+const PhotoFeedPage = () => {
   return (
     <MainContainer>
       <PhotoFeedPageContainer />
