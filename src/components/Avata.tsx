@@ -1,5 +1,5 @@
 import React from 'react';
-import DefaultImage from '../assets/userDefault.svg';
+import DefaultImage from '../assets/user-default.svg';
 import styled from 'styled-components';
 
 interface Props {
