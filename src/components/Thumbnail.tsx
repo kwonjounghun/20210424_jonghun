@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 interface Props {
-  photoUrl: string;
+  photoUrl?: string;
 };
 
 const Thumbnail: React.FC<Props> = ({
@@ -27,7 +27,7 @@ const ImageContainer = styled.div`
   overflow: hidden;
 `;
 
-const ImageBox = styled.div<{ photoUrl: string }>`
+const ImageBox = styled.div<{ photoUrl: string | undefined }>`
   position: absolute;
   width: 100%;
   height: 100%;
@@ -36,7 +36,7 @@ const ImageBox = styled.div<{ photoUrl: string }>`
   background-size: cover;
   background-position: center;
   background-color: rgba(128, 128, 128, 0.192);
-  ${({ photoUrl }) => `background-image: url(${photoUrl});`}
+  ${({ photoUrl }) => photoUrl && `background-image: url(${photoUrl});`}
 `;
 
 export default Thumbnail;
