@@ -14,7 +14,7 @@ describe('Avata', () => {
     screen.getByText('프로필 이미지');
   });
 
-  it('When you have photoUrl porps', () => {
+  it('When you have photoUrl props', () => {
     const avata = screen.getByTestId('Avata');
     expect(avata.getAttribute('src')).toEqual(photoUrl);
   });
