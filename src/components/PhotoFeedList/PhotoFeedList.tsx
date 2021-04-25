@@ -8,7 +8,6 @@ interface Props {
 
 const PhotoFeedList: React.FC<Props> = ({
   photoFeedList = [],
-  ...props
 }) => {
   return (
     <ListContainer>

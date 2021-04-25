@@ -20,7 +20,6 @@ const PhotoFeedCard: React.FC<Props> = ({
   photoUrl,
   profileImgUrl,
   onChange,
-  ...props
 }) => {
   return (
     <CardContainer>
