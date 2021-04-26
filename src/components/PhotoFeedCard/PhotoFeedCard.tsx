@@ -1,7 +1,7 @@
 import React from 'react';
 import UserProfile from '../UserProfile';
 import Thumbnail from '../Thumbnail';
-import BookMarkToggle from '../BookMarkToggle';
+import ScrapToggle from '../ScrapToggle';
 import styled from 'styled-components';
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
   photoUrl?: string;
   profileImgUrl?: string;
   nickname?: string;
-  onChange?: () => void;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   checked?: boolean;
 };
 
@@ -25,7 +25,7 @@ const PhotoFeedCard: React.FC<Props> = ({
     <CardContainer>
       <UserProfile nickname={nickname} profileImgUrl={profileImgUrl} />
       <FeedImage photoUrl={photoUrl} />
-      <BookMark id={`${id}`} checked={checked} onChange={onChange} />
+      <Scrap id={`${id}`} checked={checked} onChange={onChange} />
     </CardContainer>
   );
 };
@@ -39,7 +39,7 @@ const FeedImage = styled(Thumbnail)`
   margin-top: 10px;
 `;
 
-const BookMark = styled(BookMarkToggle)`
+const Scrap = styled(ScrapToggle)`
   position: absolute;
   right: 10px;
   bottom: 10px;

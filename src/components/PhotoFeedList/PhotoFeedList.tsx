@@ -5,10 +5,12 @@ import { photoFeedListType } from '../../types';
 
 interface Props {
   photoFeedList: photoFeedListType;
+  scrapHandler: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const PhotoFeedList: React.FC<Props> = ({
   photoFeedList = [],
+  scrapHandler,
 }) => {
   return (
     <ListContainer>
@@ -17,6 +19,7 @@ const PhotoFeedList: React.FC<Props> = ({
         nickname,
         image_url,
         profile_image_url,
+        scrap,
       }) => {
         return (
           <ListItem key={id} data-testid="photo-feed-item">
@@ -25,6 +28,8 @@ const PhotoFeedList: React.FC<Props> = ({
               photoUrl={image_url}
               profileImgUrl={profile_image_url}
               nickname={nickname}
+              checked={scrap}
+              onChange={scrapHandler}
             />
           </ListItem>
         );

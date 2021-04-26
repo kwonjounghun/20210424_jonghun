@@ -1,55 +1,48 @@
 import React from 'react';
-import CheckIconSvg from '../../assets/check.svg';
+import ScrapSvg from '../../assets/scrap.svg';
+import ScrapBlueSvg from '../../assets/scrap-blue.svg';
+import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
 
 interface Props extends React.HTMLAttributes<HTMLInputElement> {
-  className?: string;
+  classNames?: string;
   checked?: boolean;
+  id?: string;
 };
 
 const ScrapToggle: React.FC<Props> = ({
-  checked,
   className,
+  checked,
+  id,
   ...props
 }) => {
+  const UniqueId = id || `scrap-${uuidv4()}`;
   return (
-    <ToggleContainer className={className} htmlFor="scrap-toggle" data-testid="scrap-toggle">
-      <CheckIconWrapper checked={checked} data-testid="scrap-toggle-box">
-        <CheckIcon src={CheckIconSvg} data-testid="scrap-toggle-icon" />
-      </CheckIconWrapper>
+    <ToggleContainer className={className} htmlFor={UniqueId} data-testid="scrap">
+      <ScrapIcon>
+        <img src={checked ? ScrapBlueSvg : ScrapSvg} data-testid="scrap-icon"/>
+      </ScrapIcon>
       <Checkbox
-        id="scrap-toggle"
+        id={UniqueId}
         type="checkbox"
         checked={checked}
-        data-testid="scrap-toggle-checkbox"
+        data-testid="scrap-checkbox"
         {...props}
       />
-      <FilterText>스크랩한 것만 보기</FilterText>
+      <HiddenText>{`스크랩 ${checked ? '취소' : '하기'}`}</HiddenText>
     </ToggleContainer>
   );
 };
 
 const ToggleContainer = styled.label`
-  display: flex;
-  align-items: center;
+  position: relative;
   cursor: pointer;
 `;
 
-const CheckIconWrapper = styled.div<{ checked: boolean | undefined }>`
-  display: inline-block;
-  position: relative;
-  width: 24px;
-  height: 24px;
-  border: 1px solid ${({ checked }) => checked ? '#35C5F0' : '#DADCE0'};
-  background-color: ${({ checked }) => checked ? '#35C5F0' : '#fff'};
-  border-radius: 4px;
-`;
-
-const CheckIcon = styled.img`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+const ScrapIcon = styled.div`
+  width: 28px;
+  height: 28px;
+  text-align: center;
 `;
 
 const Checkbox = styled.input`
@@ -61,10 +54,13 @@ const Checkbox = styled.input`
   clip: rect(0,0,0,0);
 `;
 
-const FilterText = styled.span`
-  font-size: 15px;
-  line-height: 22px;
-  margin-left: 6px;
+const HiddenText = styled.span`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
 `;
 
-export default ScrapToggle;
+export default React.memo(ScrapToggle);

@@ -1,6 +1,8 @@
 import produce from 'immer';
 import * as constants from '../constants';
+import { SCRAP_KEY } from '../constants';
 import { photoFeedListType, reducerStatusType } from '../types';
+import { localStorageGet } from '../utils';
 
 interface photoFeedState {
   status: reducerStatusType;
@@ -33,6 +35,11 @@ const photoFeedList = (state = initialState, action: any) => {
     case constants.FETCH_PHOTO_FEED_LIST.FAILURE:
       return produce(state, draft => {
         draft.status = 'FAILURE';
+        draft.isLast = true;
+      });
+    case constants.SCRAP_LIST_MODIFY:
+      return produce(state, draft => {
+        draft.feedList = action.payload;
       });
     default:
       return produce(state, draft => {

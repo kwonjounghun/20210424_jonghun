@@ -32,8 +32,16 @@ const MoreFeedSection: React.FC<Props> = ({
     }, {
       threshold: 1,
     });
+    
+    if (isLast) {
+      intersectionObserver.unobserve(target.current);
+    } else {
+      intersectionObserver.observe(target.current);
+    }
 
-    intersectionObserver.observe(target.current);
+    return ()=> {
+      intersectionObserver.unobserve(target.current);
+    }
   }, [target, status, page, isLast]);
 
   return (
