@@ -1,11 +1,15 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import GlobalStyle from './GlobalStyle';
+import store from './store';
+import { PhotoFeedPage } from './pages';
 
 function App() {
   return (
-    <React.Fragment>
+    <Provider store={store}>
       <GlobalStyle />
-    </React.Fragment>
+      <PhotoFeedPage />
+    </Provider>
   );
 }
 
