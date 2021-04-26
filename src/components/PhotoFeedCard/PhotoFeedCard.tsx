@@ -23,9 +23,9 @@ const PhotoFeedCard: React.FC<Props> = ({
 }) => {
   return (
     <CardContainer>
-      <UserProfile nickname={nickname} profileImgUrl={profileImgUrl}/>
+      <UserProfile nickname={nickname} profileImgUrl={profileImgUrl} />
       <FeedImage photoUrl={photoUrl} />
-      <BookMark id={`${id}`} checked={checked} onChange={onChange}/>
+      <BookMark id={`${id}`} checked={checked} onChange={onChange} />
     </CardContainer>
   );
 };

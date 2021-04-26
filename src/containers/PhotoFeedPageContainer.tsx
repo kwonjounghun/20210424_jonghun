@@ -1,33 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import { PhotoFeedList, ScrapToggle } from '../components';
-import { photoFeedListRequest } from '../api';
+import React from 'react';
+import { connect } from 'react-redux';
+import { PhotoFeedList, ScrapToggle, MoreFeedSection } from '../components';
+import { getPhotoFeedList } from '../selectors';
+import * as actions from '../actions';
 
-const PhotoFeedPageContainer = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [photoFeedList, setPhotoFeedList] = useState<any>([]);
+interface Props {
+  photoFeedListRequest: any;
+  photoFeedList: any;
+}
 
-  const addPhotoFeedList = (page: number) => {
-    photoFeedListRequest(page)
-      .then(response => {
-        setPhotoFeedList([...photoFeedList, ...response.data]);
-      });
+const PhotoFeedPageContainer: React.FC<Props> = ({
+  photoFeedList,
+  photoFeedListRequest,
+}) => {
+  const handleVisible = (status: string, page: number) => {
+    if (status !== 'REQUEST') {
+      photoFeedListRequest(page + 1);
+    }
   };
-
-  useEffect(() => {
-    addPhotoFeedList(currentPage);
-  }, [])
-
-
-  useEffect(() => {
-    addPhotoFeedList(currentPage);
-  }, [currentPage]);
 
   return (
     <div>
       <ScrapToggle />
-      <PhotoFeedList photoFeedList={photoFeedList} />
+      <PhotoFeedList photoFeedList={photoFeedList.feedList} />
+      <MoreFeedSection
+        onVisible={handleVisible}
+        status={photoFeedList.status}
+        page={photoFeedList.page}
+        isLast={photoFeedList.isLast}
+      />
     </div>
   )
-}
+};
 
-export default PhotoFeedPageContainer;
+const mapStateToProps = (state: any) => {
+  return {
+    photoFeedList: getPhotoFeedList(state),
+  }
+};
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    photoFeedListRequest: (page: number) => dispatch(actions.photoFeedListRequest(page)),
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(PhotoFeedPageContainer);

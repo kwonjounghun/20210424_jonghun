@@ -1,9 +1,10 @@
 import React from 'react';
 import PhotoFeedCard from '../PhotoFeedCard';
 import styled from 'styled-components';
+import { photoFeedListType } from '../../types';
 
 interface Props {
-  photoFeedList: Array<any>;
+  photoFeedList: photoFeedListType;
 };
 
 const PhotoFeedList: React.FC<Props> = ({
